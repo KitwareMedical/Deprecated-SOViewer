@@ -1,0 +1,17 @@
+#
+# Use FLTK 
+#
+IF(USE_FLTK)
+  IF(HAS_FLTK)
+    SUBDIRS(Fltk)
+  ENDIF(HAS_FLTK)
+ENDIF(USE_FLTK)
+
+#
+# Use Qt
+#
+IF(USE_QT)
+  IF(QT_FOUND)
+    SUBDIRS(Qt)
+  ENDIF(QT_FOUND)
+ENDIF(USE_QT)

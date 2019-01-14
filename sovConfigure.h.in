@@ -1,0 +1,48 @@
+/* 
+ * here is where system comupted values get stored these values should only
+ * change when the target compile platform changes 
+ */
+
+/* what byte order */
+#cmakedefine CMAKE_WORDS_BIGENDIAN
+#ifdef CMAKE_WORDS_BIGENDIAN
+  #define SOV_WORDS_BIGENDIAN 
+#endif
+
+/* what threading system are we using */
+#cmakedefine CMAKE_USE_PTHREADS
+#ifdef CMAKE_USE_PTHREADS
+#define SOV_USE_PTHREADS
+#endif
+
+#cmakedefine CMAKE_USE_SPROC
+#ifdef CMAKE_USE_SPROC
+#define SOV_USE_SPROC
+#endif
+
+#cmakedefine CMAKE_HP_PTHREADS
+#ifdef CMAKE_HP_PTHREADS
+#define SOV_HP_PTHREADS
+#endif
+
+#cmakedefine CMAKE_USE_WIN32_THREADS
+#ifdef CMAKE_USE_WIN32_THREADS
+#define SOV_USE_WIN32_THREADS
+#endif
+
+#cmakedefine SOV_BUILD_SHARED_LIBS
+#ifdef SOV_BUILD_SHARED_LIBS
+#define SOVDLL
+#else
+#define SOVSTATIC
+#endif
+
+#cmakedefine CMAKE_NO_STD_NAMESPACE
+#cmakedefine CMAKE_NO_ANSI_STREAM_HEADERS
+#cmakedefine CMAKE_NO_ANSI_STRING_STREAM
+#cmakedefine CMAKE_NO_ANSI_FOR_SCOPE
+
+#define SOV_VERSION_MAJOR @SOV_VERSION_MAJOR@
+#define SOV_VERSION_MINOR @SOV_VERSION_MINOR@
+#define SOV_VERSION_PATCH @SOV_VERSION_PATCH@
+#define SOV_VERSION_STRING "@SOV_VERSION_STRING@"

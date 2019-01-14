@@ -1,0 +1,17 @@
+IF(VTK_FOUND)
+  SUBDIRS( 
+    VTK
+  )
+ENDIF(VTK_FOUND)
+
+IF(USE_PHANTOM)
+  SUBDIRS( 
+    Phantom
+  )
+ENDIF(USE_PHANTOM)
+
+IF(BUILD_GL)
+  SUBDIRS( 
+    OpenGL
+    )
+ENDIF(BUILD_GL)

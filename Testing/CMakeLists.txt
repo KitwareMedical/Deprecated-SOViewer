@@ -1,0 +1,2 @@
+SUBDIRS(SpatialObject Viewer Common)
+

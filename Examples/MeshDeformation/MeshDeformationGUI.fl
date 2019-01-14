@@ -1,0 +1,23 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0106 
+header_name {.h} 
+code_name {.cxx}
+class MeshDeformationGUI {open
+} {
+  Function {MeshDeformationGUI()} {open
+  } {
+    Fl_Window win {
+      label {MeshDeformation Example (SOViewer)}
+      xywh {619 249 641 520} type Double resizable visible
+    } {
+      Fl_Box Display {
+        label Display
+        xywh {0 0 635 515} box FLAT_BOX color 0 labelcolor 7
+        code0 {\#include <sovFlVTKDisplay.h>}
+        class {sov::FlVTKDisplay}
+      }
+    }
+  }
+  Function {~MeshDeformationGUI()} {open
+  } {}
+} 

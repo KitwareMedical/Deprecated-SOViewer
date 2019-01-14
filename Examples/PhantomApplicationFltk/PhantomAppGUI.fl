@@ -1,0 +1,21 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0104 
+header_name {.h} 
+code_name {.cxx}
+class PhantomAppGUI {open
+} {
+  Function {PhantomAppGUI()} {open
+  } {
+    Fl_Window win {
+      xywh {228 81 835 694} type Double resizable visible
+    } {
+      Fl_Box Display {
+        label Display selected
+        xywh {0 0 835 695} box FLAT_BOX color 0 labelcolor 7
+        code0 {\#include <sovFlVTKDisplay.h>}
+        class {sov::FlVTKDisplay}
+      }
+    }
+  }
+  Function {~PhantomAppGUI()} {} {}
+} 

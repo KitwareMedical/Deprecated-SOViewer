@@ -1,0 +1,47 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0104 
+header_name {.h} 
+code_name {.cxx}
+class SpatialObjectManager_EXPORT SpatialObjectManagerGUI {open : {public itk::Object}
+} {
+  Function {SpatialObjectManagerGUI()} {open
+  } {
+    Fl_Window ManagerWindow {
+      label {Spatial Object Manager} open selected
+      xywh {317 194 460 455} type Double
+      code0 {\#include <itkObject.h>}
+      code1 {\#include "SpatialObjectManagerExport.h"} visible
+    } {
+      Fl_Scroll Tree_Scroll {
+        label {Scene Hierarchy} open
+        xywh {0 15 205 440} type VERTICAL box FLAT_BOX color 55 labelsize 11
+      } {
+        Fl_Box tree {
+          callback {SelectObject();}
+          xywh {0 15 205 440} box ENGRAVED_BOX color 55 labelsize 11 align 1
+          code0 {\#include<Fl_ToggleTree.H>}
+          class Fl_ToggleTree
+        }
+      }
+      Fl_Browser PropertyBrowser {
+        label {Object Properties}
+        xywh {205 15 255 440} box ENGRAVED_BOX color 47 labelsize 11 align 1 textsize 11
+      }
+    }
+  }
+  Function {~SpatialObjectManagerGUI()} {} {}
+  Function {Show(void)} {open return_type {virtual void}
+  } {
+    code {ManagerWindow->show();} {}
+  }
+  Function {Hide(void)} {open return_type {virtual void}
+  } {
+    code {ManagerWindow->hide();} {}
+  }
+  Function {SetLabel( const char * label )} {open return_type {virtual void}
+  } {
+    code {ManagerWindow->label( label );} {}
+  }
+  Function {SelectObject(void)} {open return_type {virtual void}
+  } {}
+} 

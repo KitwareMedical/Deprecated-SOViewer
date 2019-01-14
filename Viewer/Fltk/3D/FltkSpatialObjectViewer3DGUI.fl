@@ -1,0 +1,237 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0107 
+header_name {.h} 
+code_name {.cxx}
+class FltkSOViewer3D_EXPORT FltkSpatialObjectViewer3DGUI {open
+} {
+  Function {FltkSpatialObjectViewer3DGUI()} {} {
+    Fl_Window window {
+      label SpatialObjectViewer3D open
+      xywh {578 50 766 727} type Double box PLASTIC_DOWN_BOX color 0 resizable
+      code0 {\#include "FltkSpatialObjectViewer3DExport.h"} visible
+    } {
+      Fl_Box Display {
+        label Display
+        xywh {5 5 730 410} box FLAT_BOX color 0 labelcolor 7 resizable
+        code0 {\#include <sovFlVTKDisplay.h>}
+        class {sov::FlVTKDisplay}
+      }
+      Fl_Button {} {
+        label {Load Spatial Object}
+        callback {LoadSpatialObject()}
+        xywh {20 455 110 20} box PLASTIC_DOWN_BOX color 88 labelsize 11 labelcolor 57
+      }
+      Fl_Button {} {
+        label {Load Image}
+        callback {LoadImage()}
+        xywh {20 485 110 20} box PLASTIC_DOWN_BOX color 88 labelsize 11
+      }
+      Fl_Group {} {
+        label {Slider Movement Plane:} open
+        xywh {125 425 205 30} labelsize 11 align 4
+      } {
+        Fl_Round_Button gui_xy {
+          label XY
+          callback {ActivateSlider();}
+          xywh {130 430 50 15} type Radio down_box ROUND_DOWN_BOX value 1 selection_color 1 labelsize 11
+        }
+        Fl_Round_Button gui_xz {
+          label XZ
+          callback {ActivateSlider();}
+          xywh {195 430 50 15} type Radio down_box ROUND_DOWN_BOX selection_color 1 labelsize 11
+        }
+        Fl_Round_Button gui_yz {
+          label YZ
+          callback {ActivateSlider();}
+          xywh {255 430 45 15} type Radio down_box ROUND_DOWN_BOX selection_color 1 labelsize 11
+        }
+      }
+      Fl_Scrollbar slider {
+        callback {Slide();}
+        xywh {740 5 15 410} deactivate
+      }
+      Fl_Button {} {
+        label ScreenShot
+        callback {ScreenShot();}
+        xywh {145 470 105 20} box PLASTIC_DOWN_BOX color 61 labelsize 11
+      }
+      Fl_Button {} {
+        label Cut
+        callback {Cut();}
+        xywh {270 470 105 20} box PLASTIC_DOWN_BOX color 136 labelsize 11
+      }
+      Fl_Group {} {
+        label {Spatial Object Properties} open
+        xywh {15 580 405 145} box PLASTIC_DOWN_BOX color 88 labelsize 11 align 5
+      } {
+        Fl_Value_Input colorR {
+          label {R:}
+          callback {ChangeColor();}
+          xywh {50 655 35 20} labelsize 11 when 4 step 0.1 value 1 textsize 11
+        }
+        Fl_Value_Input colorG {
+          label {G:}
+          callback {ChangeColor();}
+          xywh {105 655 35 20} labelsize 11 when 4 step 0.1 textsize 11
+        }
+        Fl_Value_Input colorB {
+          label {B:}
+          callback {ChangeColor();}
+          xywh {160 655 30 20} labelsize 11 when 4 textsize 11
+        }
+        Fl_Button ColorBt {
+          label {color...}
+          callback {ColorChooserWin->show();}
+          xywh {210 655 50 20} box PLASTIC_DOWN_BOX color 80 labelsize 11
+        }
+        Fl_Light_Button Visible {
+          label Visible
+          callback {ChangeColor();}
+          xywh {30 595 70 20} box PLASTIC_DOWN_BOX value 1 color 80 labelsize 11
+        }
+        Fl_Round_Button {} {
+          label Surface
+          callback {ChangeRepresentation(SOV_SURFACE);}
+          xywh {40 620 80 25} type Radio down_box ROUND_DOWN_BOX labelsize 11
+          code0 {\#include <sovVisualObjectProperty.h>}
+        }
+        Fl_Round_Button {} {
+          label Wireframe
+          callback {ChangeRepresentation(SOV_WIREFRAME);}
+          xywh {115 620 80 25} type Radio down_box ROUND_DOWN_BOX labelsize 11
+        }
+        Fl_Round_Button {} {
+          label Points
+          callback {ChangeRepresentation(SOV_POINTS);}
+          xywh {190 620 80 25} type Radio down_box ROUND_DOWN_BOX labelsize 11
+        }
+        Fl_Value_Input colorAlpha {
+          label {Opacity: }
+          callback {ChangeColor();}
+          xywh {345 655 40 20} labelsize 11 when 4 value 1 textsize 11
+        }
+        Fl_Value_Input specularLight {
+          label {Specular:}
+          callback {ChangeColor();}
+          xywh {90 685 40 20} labelsize 11 when 4 step 0.01 textsize 11
+        }
+        Fl_Value_Input specularPower {
+          label {Specular Power:}
+          callback {ChangeColor();}
+          xywh {225 685 40 20} labelsize 11 when 4 maximum 100 step 1 value 1 textsize 11
+        }
+        Fl_Value_Input renderingResolution {
+          label {Resolution:}
+          callback {ChangeRenderingResolution()}
+          xywh {343 685 40 20} labelsize 11 when 4 maximum 100 step 1 value 5 textsize 11
+        }
+      }
+      Fl_Group {} {
+        label {Spatial Object Transforms}
+        xywh {420 450 335 150} box PLASTIC_DOWN_BOX color 136 labelsize 11 align 5
+      } {
+        Fl_Group {} {
+          label {Object To World}
+          xywh {440 475 295 100} box PLASTIC_DOWN_BOX color 136 labelsize 11
+        } {
+          Fl_Value_Input OffsetX {
+            label {X:}
+            callback {UpdateObjectToWorldTransform();}
+            xywh {480 490 30 20} labelsize 11 textsize 11
+          }
+          Fl_Value_Input OffsetY {
+            label {Y:}
+            callback {UpdateObjectToWorldTransform();}
+            xywh {540 490 30 20} labelsize 11 textsize 11
+          }
+          Fl_Value_Input OffsetZ {
+            label {Z:}
+            callback {UpdateObjectToWorldTransform();}
+            xywh {600 490 30 20} labelsize 11 textsize 11
+          }
+          Fl_Value_Input ScaleX {
+            label {sX:}
+            callback {UpdateObjectToWorldTransform();}
+            xywh {480 515 30 20} labelsize 11 value 1 textsize 11
+          }
+          Fl_Value_Input ScaleY {
+            label {sY:}
+            callback {UpdateObjectToWorldTransform();}
+            xywh {540 515 30 20} labelsize 11 value 1 textsize 11
+          }
+          Fl_Value_Input ScaleZ {
+            label {sZ:}
+            callback {UpdateObjectToWorldTransform();}
+            xywh {600 515 30 20} labelsize 11 value 1 textsize 11
+          }
+        }
+      }
+      Fl_Button {} {
+        label Quit
+        callback {QuitViewer();}
+        xywh {570 615 70 25} box PLASTIC_DOWN_BOX down_box PLASTIC_UP_BOX color 70 selection_color 72 labelsize 11
+      }
+      Fl_Value_Input IntensityMinBt {
+        label {Intensity Min:}
+        callback {UpdateIWindowing();}
+        xywh {95 530 45 20} labelsize 11 when 8 textsize 11
+      }
+      Fl_Value_Input IntensityMaxBt {
+        label {Intensity Max:}
+        callback {UpdateIWindowing();}
+        xywh {215 530 45 20} labelsize 11 when 8 textsize 11
+      }
+      Fl_Button {} {
+        label {Show Manager}
+        callback {ShowManager()}
+        xywh {445 615 110 20} box PLASTIC_DOWN_BOX color 88 labelsize 11 labelcolor 57
+      }
+    }
+    Fl_Window ColorChooserWin {
+      xywh {870 186 516 349} type Double hide
+    } {
+      Fl_Box colorChooser {
+        label label
+        xywh {10 10 495 300} box FLAT_BOX color 38
+        code0 {\#include "FL/Fl_Color_Chooser.H"}
+        class Fl_Color_Chooser
+      }
+      Fl_Button {} {
+        label Apply
+        callback {ChangeColor();}
+        xywh {230 315 75 25} labelsize 11
+      }
+    }
+  }
+  Function {~FltkSpatialObjectViewer3DGUI()} {open return_type virtual
+  } {
+    code {Display->Delete();} {selected
+    }
+  }
+  Function {LoadSpatialObject()} {open return_type virtual
+  } {}
+  Function {LoadImage()} {open return_type virtual
+  } {}
+  Function {Slide()} {open return_type virtual
+  } {}
+  Function {ActivateSlider()} {open return_type virtual
+  } {}
+  Function {ScreenShot()} {open return_type virtual
+  } {}
+  Function {Cut()} {open return_type virtual
+  } {}
+  Function {ChangeColor()} {open return_type virtual
+  } {}
+  Function {UpdateObjectToWorldTransform()} {open return_type virtual
+  } {}
+  Function {ChangeRepresentation(SOV_RepresentationType)} {open return_type virtual
+  } {}
+  Function {QuitViewer()} {open return_type virtual
+  } {}
+  Function {UpdateIWindowing()} {open return_type virtual
+  } {}
+  Function {ShowManager()} {open return_type virtual
+  } {}
+  Function {ChangeRenderingResolution()} {open return_type virtual
+  } {}
+} 

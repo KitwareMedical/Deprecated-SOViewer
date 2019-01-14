@@ -1,0 +1,87 @@
+#-----------------------------------------------------------------------------
+#
+# SOVConfig.cmake - CMake configuration file for external projects.
+#
+# This file is configured by SOV and used by the UseSOV.cmake 
+# module to load SOV's settings for an external project.
+
+# The SOV version number.
+SET(SOV_VERSION_MAJOR "@SOV_VERSION_MAJOR@")
+SET(SOV_VERSION_MINOR "@SOV_VERSION_MINOR@")
+SET(SOV_VERSION_PATCH "@SOV_VERSION_PATCH@")
+
+# The libraries.
+SET(SOV_LIBRARIES "@SOV_LIBRARIES@")
+
+# The configuration options.
+SET(SOV_BUILD_SHARED_LIBS "@BUILD_SHARED_LIBS@")
+
+# The C and C++ flags added to the cmake-configured flags.
+SET(SOV_REQUIRED_C_FLAGS 
+  "@SOV_REQUIRED_C_FLAGS@")
+SET(SOV_REQUIRED_CXX_FLAGS 
+  "@SOV_REQUIRED_CXX_FLAGS@")
+SET(SOV_REQUIRED_EXE_LINKER_FLAGS 
+  "@SOV_REQUIRED_EXE_LINKER_FLAGS@")
+SET(SOV_REQUIRED_SHARED_LINKER_FLAGS 
+  "@SOV_REQUIRED_SHARED_LINKER_FLAGS@")
+SET(SOV_REQUIRED_MODULE_LINKER_FLAGS 
+  "@SOV_REQUIRED_MODULE_LINKER_FLAGS@")
+
+# The "use" file.
+SET(SOV_USE_FILE "@SOV_USE_FILE_CONFIG@")
+
+# The build settings file.
+SET(SOV_BUILD_SETTINGS_FILE "@SOV_BUILD_SETTINGS_FILE_CONFIG@")
+
+# The library directories.
+SET(SOV_LIBRARY_DIRS "@SOV_LIBRARY_DIRS_CONFIG@")
+
+# The runtime directories.
+# Note that if SOV_CONFIGURATION_TYPES is set (see below) then
+# these directories will be the parent directories under which there will
+# be a directory of runtime binaries for each configuration type.
+SET(SOV_RUNTIME_DIRS "@SOV_RUNTIME_DIRS_CONFIG@")
+
+# The include directories.
+SET(SOV_INCLUDE_DIRS "@SOV_INCLUDE_DIRS_CONFIG@")
+
+# The library dependencies file.
+IF(NOT SOV_NO_LIBRARY_DEPENDS)
+  INCLUDE("@SOV_LIBRARY_DEPENDS_FILE@")
+ENDIF(NOT SOV_NO_LIBRARY_DEPENDS)
+
+# The ITK options.
+SET(SOV_ITK_DIR "@SOV_ITK_DIR_CONFIG@")
+
+# The Phantom options.
+SET(SOV_USE_PHANTOM "@USE_PHANTOM@")
+
+# The VTK options.
+SET(SOV_USE_VTK "@USE_VTK@")
+SET(SOV_VTK_DIR "@SOV_VTK_DIR_CONFIG@")
+
+# The FLTK options.
+SET(SOV_USE_FLTK "@USE_FLTK@")
+SET(SOV_FLTK_DIR "@SOV_FLTK_DIR_CONFIG@")
+
+# The Qt options.
+SET(SOV_USE_QT "@USE_QT@")
+
+# The GL options.
+SET(SOV_BUILD_GL "@BUILD_GL@")
+
+# An install tree always provides one build configuration.
+# A build tree may provide either one or multiple build
+# configurations depending on the CMake generator used. Since
+# this project can be used either from a build tree or an install tree it
+# is useful for outside projects to know the configurations available.
+# If this SOVConfig.cmake is in an install tree
+# SOV_CONFIGURATION_TYPES will be empty and SOV_BUILD_TYPE
+# will be set to the value of CMAKE_BUILD_TYPE used to build
+# SOV. If SOVConfig.cmake is in a build tree
+# then SOV_CONFIGURATION_TYPES and SOV_BUILD_TYPE will
+# have values matching CMAKE_CONFIGURATION_TYPES and CMAKE_BUILD_TYPE
+# for that build tree (only one will ever be set).
+SET(SOV_CONFIGURATION_TYPES @SOV_CONFIGURATION_TYPES_CONFIG@)
+SET(SOV_BUILD_TYPE @SOV_BUILD_TYPE_CONFIG@)

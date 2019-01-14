@@ -1,0 +1,9 @@
+#
+# Use FLTK 
+#
+IF(USE_FLTK)
+  IF(HAS_FLTK)
+    SUBDIRS(FltkSOV3DTool)
+  ENDIF(HAS_FLTK)
+ENDIF(USE_FLTK)
+

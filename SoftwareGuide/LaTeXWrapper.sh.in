@@ -1,0 +1,6 @@
+#!/bin/sh
+
+TEXINPUTS=$TEXINPUTS:${SOV_TEXINPUTS}
+export TEXINPUTS
+
+${LATEX_COMPILER} "$@"

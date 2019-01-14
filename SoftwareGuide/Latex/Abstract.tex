@@ -1,0 +1,49 @@
+\chapter*{Abstract}
+\noindent
+The Spatial Objects Viewers Toolkit \href{http://caddlab.rad.unc.edu/software/SOViewer}{(SOV)} 
+is an open-source (free for non-commercial use) software toolkit for 
+quickly visualizing objects. 
+
+\emph{Segmentation} is the process of identifying and
+classifying data found in a digitally sampled
+representation. Typically the sampled representation is an image
+acquired from such medical instrumentation as CT or MRI
+scanners. \emph{Registration} is the task of aligning or developing
+correspondences between data. For example, in the medical environment,
+a CT scan may be aligned with a MRI scan in order to combine the
+information contained in both.
+
+SOV is implemented in C++. It is cross-platform, using a build
+environment known as \href{http://www.cmake.org}{CMake} to manage the
+compilation process in a platform-independent way. In addition, an
+automated wrapping process
+(\href{http://public.kitware.com/Cable/HTML/Index.html}{Cable})
+generates interfaces between C++ and interpreted programming languages
+such as Tcl, Java, and \href{http://www.python.org}{Python}. This
+enables developers to create software using a variety of programming
+languages. SOV's C++ implementation style is referred to as generic
+programming, which is to say that it uses templates so that the same
+code can be applied \emph{generically} to any class or type that
+happens to support the operations used. Such C++
+templating means that the code is highly efficient, and that many
+software problems are discovered at compile-time, rather than at
+run-time during program execution.
+
+Because SOV is an open-source project, developers from around the
+world can use, debug, maintain, and extend the software. ITK uses a
+model of software development referred to as Extreme
+Programming. Extreme Programming collapses the usual software creation
+methodology into a simultaneous and iterative process of
+design-implement-test-release. The key features of Extreme Programming
+are communication and testing. Communication among the members of the
+ITK community is what helps manage the rapid evolution of the
+software.  Testing is what keeps the software stable. In ITK, an
+extensive testing process (using a system known as
+\href{http://public.kitware.com/dashboard.php}{Dart}) is in place that
+measures the quality on a daily basis. The ITK Testing Dashboard is
+posted continuously, reflecting the quality of the software at any
+moment.
+
+This book is a guide to using and developing with SOV.
+The most recent version of this document is available online at
+\url{http://caddlab.rad.unc.edu/software/SOViewer/index.htm}.

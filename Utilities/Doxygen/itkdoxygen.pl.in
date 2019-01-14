@@ -1,0 +1,1 @@
+system ("perl @SOV_SOURCE_DIR@/Utilities/Doxygen/itkgroup.pl $ARGV[0]");

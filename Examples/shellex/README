@@ -1,0 +1,166 @@
+
+==============
+Shell Explorer
+==============
+
+
+
+:Author:   Gavin Baker
+:Contact:  gavinb@cs.mu.oz.au
+:Revision: $Revision: 1.1 $
+:Date:     $Date: 2005-07-14 20:59:58 $
+
+
+Introduction
+------------
+
+This program allows the user to explore the parametric forms of a spiral
+shell in 3 Dimensions.  It's safe, low-carb and fun for the whole family.
+
+The parametric form is that published by Nordstrand, referenced at
+MathWorld:
+
+  http://mathworld.wolfram.com/Seashell.html
+
+It is designed to be a simple example of how to integrate ITK_, FLTK_, VTK_
+and the SOViewer_ libraries.  In fact, it was written as a learning
+exercise, so hopefully it will be useful for others.
+
+.. _ITK: http://www.itk.org/
+.. _VTK: http://www.itk.org/
+.. _FLTK: http://www.itk.org/
+.. _SOViewer: http://www.caddlab.rad.unc.edu/software/SOViewer/
+
+
+
+Design
+------
+
+The application is designed according to a layered architecture (essentially
+the same pattern that many of the InsightApplication demos have).  The
+ShellExplorerBase class is the "engine", which knows nothing of the GUI or
+visualisation.  Its sole purpose is to generate the mesh and manage the
+data.  The ShellExplorerGUI class derives from this, adding the window, 3D
+display and widgets.  It is declared in Fluid, the GUI editor for FLTK.  It
+adds some virtual methods that are user actions, which are implemented by
+the application.  It has as little code as possible (mostly for
+maintainability).  Finally the ShellExplorerApp class inherits from the GUI
+class, adds implementation for the user actions (such as Save) and knows
+about the visualisation stuff.  To picture it all::
+
+  (Engine)                ShellExplorerBase
+                                  ^
+                                  |
+  (GUI)                   ShellExplorerGUI
+                                  ^
+                                  |
+  (Viz/App)               ShellExplorerApp
+
+
+
+Implementation
+--------------
+
+Some notes on the implementation:
+
+* The mesh has a cylindrical topology
+* The mesh is generated once (for a given U,V resolution)
+* When Update is pressed, only the position of points are modified
+* The U,V coordinates are used to index into the mesh
+* It would be trivial to add a completely different parameterisation
+* In fact, one day I probably will :)
+* Ideally the mesh would use quadrilateral cells, but -
+* SOViewer+VTK doesn't support quads yet, so -
+* Currently it is manually triangulated (which isn't really that hard)
+
+
+
+
+Requirements
+------------
+
+ShellEx requires the following libraries:
+
+====================== =======
+Name                   Version
+====================== =======
+Insight Toolkit        2.0+
+Visualisation Toolkit  4.2+
+Fast Light Toolkit     1.2+
+SOViewer               CVS
+====================== =======
+
+It should build on all the common platforms (Linux, Mac, Windows) as all the
+libraries are portable.  It has been tested under Debian GNU/Linux with gcc
+version 3.3.  Your mileage may indeed vary.
+
+
+
+Compiling
+---------
+
+Assuming you have all the above libraries built and installed correctly,
+just follow the usual process with CMake_ to build the software::
+
+  % tar xvfz shellex-0.2.tar.gz
+    ...
+  % cd shellex-0.2
+  % mkdir Build
+  % cd Build
+  % ccmake ..
+
+    [...then set the appropriate values in CMake...]
+
+  % make
+
+    [...go make a quick coffee...]
+
+  % ./shellex
+
+Now play!  Change the parameters, press Update and use the mouse to view the
+model.
+
+.. _CMake: http://www.cmake.org/
+
+
+
+Controls
+--------
+
+The following mouse controls operate on the 3D view:
+
+* Left button drag: rotate the model
+* Right button drag: zoom in and out
+* Middle button drag: pan the model
+
+The Save button will allow you to capture your creation into an image file
+for later appreciation by friends, colleagues and small pets.  You can save
+either the scene (as a MetaObject file) or as an image (in PNG format).
+
+
+
+Thanks
+------
+
+Thanks in particular to Julien Jomier and Luis Ibanez for all their help.
+And an enormous thanks to the authors and contributors to all the above *TK
+projects.
+
+
+
+License
+-------
+
+See the COPYING file in the source distribution for details - it's the New
+BSD license, which basically means do whatever you want with the code, just
+remember it has no warranty.
+
+
+
+About
+-----
+
+Why does some of this text look a bit funny?  This README is written in
+reStructuredText - see http://docutils.sf.net for more information.  It is a
+structured textual format that can be used to generate HTML, PDF and other
+things.  It's Pythonic, and very cool.

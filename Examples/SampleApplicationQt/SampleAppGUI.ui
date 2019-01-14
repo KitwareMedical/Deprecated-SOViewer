@@ -1,0 +1,451 @@
+<!DOCTYPE UI><UI>
+<class>SampleAppGUI</class>
+<widget>
+    <class>QWidget</class>
+    <property stdset="1">
+        <name>name</name>
+        <cstring>Form1</cstring>
+    </property>
+    <property stdset="1">
+        <name>geometry</name>
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>720</width>
+            <height>739</height>
+        </rect>
+    </property>
+    <property stdset="1">
+        <name>caption</name>
+        <string>Form1</string>
+    </property>
+    <grid>
+        <property stdset="1">
+            <name>margin</name>
+            <number>11</number>
+        </property>
+        <property stdset="1">
+            <name>spacing</name>
+            <number>6</number>
+        </property>
+        <widget row="1"  column="0" >
+            <class>QtGlDisplay</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>Display3</cstring>
+            </property>
+        </widget>
+        <widget row="1"  column="1" >
+            <class>QSlider</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>Slider3</cstring>
+            </property>
+            <property stdset="1">
+                <name>orientation</name>
+                <enum>Vertical</enum>
+            </property>
+        </widget>
+        <widget row="1"  column="2" >
+            <class>QtVTKDisplay</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>Display4</cstring>
+            </property>
+        </widget>
+        <widget row="0"  column="2" >
+            <class>QtGlDisplay</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>Display2</cstring>
+            </property>
+        </widget>
+        <widget row="0"  column="3" >
+            <class>QSlider</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>Slider2</cstring>
+            </property>
+            <property stdset="1">
+                <name>orientation</name>
+                <enum>Vertical</enum>
+            </property>
+        </widget>
+        <widget row="2"  column="0"  rowspan="1"  colspan="3" >
+            <class>QGroupBox</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>GroupBox1</cstring>
+            </property>
+            <property stdset="1">
+                <name>title</name>
+                <string>Parameters</string>
+            </property>
+            <widget>
+                <class>QSlider</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>Slider5_2</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>290</x>
+                        <y>30</y>
+                        <width>211</width>
+                        <height>16</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>orientation</name>
+                    <enum>Horizontal</enum>
+                </property>
+            </widget>
+            <widget>
+                <class>QLabel</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>TextLabel1</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>90</x>
+                        <y>40</y>
+                        <width>50</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Tube</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QLabel</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>TextLabel1_2</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>360</x>
+                        <y>40</y>
+                        <width>50</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>text</name>
+                    <string>Sphere</string>
+                </property>
+            </widget>
+            <widget>
+                <class>QSlider</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>Slider5_3</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>30</x>
+                        <y>60</y>
+                        <width>210</width>
+                        <height>16</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>maxValue</name>
+                    <number>360</number>
+                </property>
+                <property stdset="1">
+                    <name>orientation</name>
+                    <enum>Horizontal</enum>
+                </property>
+            </widget>
+            <widget>
+                <class>QSlider</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>Slider5</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>30</x>
+                        <y>30</y>
+                        <width>211</width>
+                        <height>16</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>orientation</name>
+                    <enum>Horizontal</enum>
+                </property>
+            </widget>
+            <widget>
+                <class>QFrame</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>Frame3</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>520</x>
+                        <y>20</y>
+                        <width>141</width>
+                        <height>61</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>frameShape</name>
+                    <enum>StyledPanel</enum>
+                </property>
+                <property stdset="1">
+                    <name>frameShadow</name>
+                    <enum>Raised</enum>
+                </property>
+                <widget>
+                    <class>QRadioButton</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>RadioButton2</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>10</x>
+                            <y>10</y>
+                            <width>111</width>
+                            <height>21</height>
+                        </rect>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>Surface</string>
+                    </property>
+                    <property stdset="1">
+                        <name>checked</name>
+                        <bool>true</bool>
+                    </property>
+                </widget>
+                <widget>
+                    <class>QRadioButton</class>
+                    <property stdset="1">
+                        <name>name</name>
+                        <cstring>RadioButton2_2</cstring>
+                    </property>
+                    <property stdset="1">
+                        <name>geometry</name>
+                        <rect>
+                            <x>10</x>
+                            <y>30</y>
+                            <width>111</width>
+                            <height>21</height>
+                        </rect>
+                    </property>
+                    <property stdset="1">
+                        <name>text</name>
+                        <string>Wireframe</string>
+                    </property>
+                </widget>
+            </widget>
+            <widget>
+                <class>QSlider</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>Slider5_3_2</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>290</x>
+                        <y>60</y>
+                        <width>210</width>
+                        <height>16</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>maxValue</name>
+                    <number>360</number>
+                </property>
+                <property stdset="1">
+                    <name>orientation</name>
+                    <enum>Horizontal</enum>
+                </property>
+            </widget>
+            <widget>
+                <class>QSlider</class>
+                <property stdset="1">
+                    <name>name</name>
+                    <cstring>Slider5_3_2_2</cstring>
+                </property>
+                <property stdset="1">
+                    <name>geometry</name>
+                    <rect>
+                        <x>290</x>
+                        <y>90</y>
+                        <width>210</width>
+                        <height>16</height>
+                    </rect>
+                </property>
+                <property stdset="1">
+                    <name>maxValue</name>
+                    <number>360</number>
+                </property>
+                <property stdset="1">
+                    <name>orientation</name>
+                    <enum>Horizontal</enum>
+                </property>
+            </widget>
+        </widget>
+        <widget row="0"  column="0" >
+            <class>QtGlDisplay</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>Display1</cstring>
+            </property>
+        </widget>
+        <widget row="0"  column="1" >
+            <class>QSlider</class>
+            <property stdset="1">
+                <name>name</name>
+                <cstring>Slider1</cstring>
+            </property>
+            <property stdset="1">
+                <name>orientation</name>
+                <enum>Vertical</enum>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<customwidgets>
+    <customwidget>
+        <class>QtVTKDisplay</class>
+        <header location="global">sovQtVTKDisplay.h</header>
+        <sizehint>
+            <width>-1</width>
+            <height>-1</height>
+        </sizehint>
+        <container>0</container>
+        <sizepolicy>
+            <hordata>5</hordata>
+            <verdata>5</verdata>
+        </sizepolicy>
+        <pixmap>image0</pixmap>
+    </customwidget>
+    <customwidget>
+        <class>QtGlDisplay</class>
+        <header location="global">sovQtGlDisplay.h</header>
+        <sizehint>
+            <width>-1</width>
+            <height>-1</height>
+        </sizehint>
+        <container>0</container>
+        <sizepolicy>
+            <hordata>5</hordata>
+            <verdata>5</verdata>
+        </sizepolicy>
+        <pixmap>image0</pixmap>
+        <signal>Position(int,int,int,float)</signal>
+        <slot access="public">ChangeSlice(int)</slot>
+        <slot access="public">IntensityMax(int)</slot>
+        <slot access="public">IntensityMin(int)</slot>
+        <slot access="public">ZoomIn()</slot>
+        <slot access="public">ZoomOut()</slot>
+    </customwidget>
+</customwidgets>
+<images>
+    <image>
+        <name>image0</name>
+        <data format="XPM.GZ" length="646">789c6dd2c10ac2300c00d07bbf2234b7229d1ddec44f503c0ae2a154410f53d0ed20e2bf6bdb656dd6861dd23d9a66591b0587fd1654235ebded6f0edcd53e419d87ae7b1f4f9b8f906d0bfe012317426a70b07bdc2f3ec77f8ed6b89559061a0343d06a124cc105596482585094bc0ae599b04646c9018926491b2205e140c485cace25755c175d0a967b622ff900b8cc9c7d29af594ea722d589167f813aa852ba07d94b9dce296e883fe7bb163f23896753</data>
+    </image>
+</images>
+<connections>
+    <connection>
+        <sender>Slider1</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>ChangeAxialSlice(int)</slot>
+    </connection>
+    <connection>
+        <sender>Slider2</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>ChangeCoronalSlice(int)</slot>
+    </connection>
+    <connection>
+        <sender>Slider3</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>ChangeSaggitalSlice(int)</slot>
+    </connection>
+    <connection>
+        <sender>RadioButton2</sender>
+        <signal>clicked()</signal>
+        <receiver>Form1</receiver>
+        <slot>SetRepresentationToSurface()</slot>
+    </connection>
+    <connection>
+        <sender>RadioButton2_2</sender>
+        <signal>clicked()</signal>
+        <receiver>Form1</receiver>
+        <slot>SetRepresentationToWireframe()</slot>
+    </connection>
+    <connection>
+        <sender>RadioButton2</sender>
+        <signal>clicked()</signal>
+        <receiver>RadioButton2_2</receiver>
+        <slot>toggle()</slot>
+    </connection>
+    <connection>
+        <sender>RadioButton2_2</sender>
+        <signal>clicked()</signal>
+        <receiver>RadioButton2</receiver>
+        <slot>toggle()</slot>
+    </connection>
+    <connection>
+        <sender>Slider5_2</sender>
+        <signal>sliderMoved(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>MoveSphere(int)</slot>
+    </connection>
+    <connection>
+        <sender>Slider5</sender>
+        <signal>sliderMoved(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>MoveTube(int)</slot>
+    </connection>
+    <connection>
+        <sender>Slider5_3</sender>
+        <signal>sliderMoved(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>RotateTube(int)</slot>
+    </connection>
+    <connection>
+        <sender>Slider5_3_2</sender>
+        <signal>sliderMoved(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>RotateSphere(int)</slot>
+    </connection>
+    <connection>
+        <sender>Slider5_3_2_2</sender>
+        <signal>sliderMoved(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>Scale(int)</slot>
+    </connection>
+    <slot access="public">ChangeAxialSlice(int)</slot>
+    <slot access="public">ChangeCoronalSlice(int)</slot>
+    <slot access="public">ChangeSaggitalSlice(int)</slot>
+    <slot access="public">MoveSphere(int)</slot>
+    <slot access="public">MoveTube(int)</slot>
+    <slot access="public">RotateSphere(int)</slot>
+    <slot access="public">RotateTube(int)</slot>
+    <slot access="public">SetRepresentationToSurface()</slot>
+    <slot access="public">SetRepresentationToWireframe()</slot>
+    <slot access="public">Scale(int)</slot>
+</connections>
+</UI>

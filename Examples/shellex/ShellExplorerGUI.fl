@@ -1,0 +1,154 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0107 
+header_name {.h} 
+code_name {.cxx}
+class ShellExplorerGUI {open : {public ShellExplorerBase}
+} {
+  Function {ShellExplorerGUI()} {} {
+    Fl_Window main_win {
+      label {Shell Explorer}
+      xywh {308 207 825 700} type Double box PLASTIC_UP_BOX color 11 resizable
+      code0 {\#include <ShellExplorerBase.h>} visible
+    } {
+      Fl_Box m_Display {
+        label Display
+        xywh {10 10 805 410} box FLAT_BOX color 0 labelcolor 7 resizable
+        code0 {\#include <sovFlVTKDisplay.h>}
+        class {sov::FlVTKDisplay}
+      }
+      Fl_Group {} {open
+        xywh {15 430 705 250} box PLASTIC_UP_BOX color 4 align 5
+      } {
+        Fl_Value_Slider a_slider {
+          label A
+          tooltip {Growth of cross-section} xywh {80 470 195 20} type Horizontal align 4 maximum 10 value 0.2
+        }
+        Fl_Value_Slider b_slider {
+          label B
+          tooltip {Growth in height} xywh {80 495 195 20} type Horizontal align 4 maximum 10 value 1
+        }
+        Fl_Value_Slider c_slider {
+          label C
+          xywh {80 520 195 20} type Horizontal align 4 maximum 10 value 0.1
+        }
+        Fl_Button {} {
+          label Update
+          callback {this->UpdateShell();
+this->UpdateDisplay();}
+          xywh {310 625 60 25}
+        }
+        Fl_Value_Slider n_slider {
+          label N
+          xywh {80 545 195 20} type Horizontal align 4 maximum 8 step 0.1 value 2
+        }
+        Fl_Value_Slider ures_slider {
+          label Ures
+          tooltip {Resolution around cross-section} xywh {80 605 195 20} type Horizontal align 4 maximum 256 step 2 value 32
+        }
+        Fl_Value_Slider vres_slider {
+          label Vres
+          tooltip {Resolution along shell} xywh {80 630 195 20} type Horizontal align 4 maximum 256 step 2 value 96
+        }
+        Fl_Box {} {
+          label {Shell Parameters}
+          xywh {80 445 195 20}
+        }
+        Fl_Box {} {
+          label {Mesh Resolution}
+          xywh {80 580 195 20}
+        }
+        Fl_Button {} {
+          label Apply
+          callback {this->ChangeColour();
+this->UpdateDisplay();}
+          xywh {625 625 60 25}
+        }
+        Fl_Box colour_chooser {
+          label colour
+          xywh {390 460 295 160} box FLAT_BOX color 38
+          code0 {\#include <FL/Fl_Color_Chooser.H>}
+          class Fl_Color_Chooser
+        }
+      }
+      Fl_Button {} {
+        label Quit
+        callback {this->Quit();}
+        xywh {730 645 80 25}
+      }
+      Fl_Button {} {
+        label SaveScene
+        callback {this->SaveScene();}
+        xywh {730 570 80 25}
+      }
+      Fl_Button {} {
+        label About
+        callback {this->about_win->show();}
+        xywh {730 530 80 25}
+      }
+      Fl_Button {} {
+        label SaveImage
+        callback {this->SaveImage();}
+        xywh {730 605 80 25}
+      }
+    }
+    Fl_Window about_win {
+      xywh {522 312 385 355} type Double hide
+    } {
+      Fl_Button {} {
+        label Close
+        callback {about_win->hide();}
+        xywh {175 325 55 25}
+      }
+      Fl_Group {} {open
+        xywh {15 15 355 305} box PLASTIC_DOWN_BOX
+      } {
+        Fl_Box {} {
+          label {Shell Explorer}
+          xywh {25 30 335 25} labelfont 1 labelsize 16
+        }
+        Fl_Box {} {
+          label {Version 0.2}
+          xywh {25 55 335 20} labelsize 12
+        }
+        Fl_Box {} {
+          label {Written by Gavin Baker}
+          xywh {25 255 335 20}
+        }
+        Fl_Box {} {
+          label {http://www.cs.mu.oz.au/~gavinb}
+          xywh {25 270 335 20} labelfont 4 labelsize 10
+        }
+        Fl_Box {} {
+          image {shellex.png} xywh {25 75 340 125}
+        }
+        Fl_Box {} {
+          label {Copyright (c) 2005 - See COPYING for BSD license}
+          xywh {25 285 335 25} labelsize 10
+        }
+        Fl_Box {} {
+          label {Explore creating parametric shells in 3D. An example integrating ITK, FLTK, VTK and SOViewer.}
+          xywh {25 195 335 50} labelsize 12 align 128
+        }
+      }
+    }
+  }
+  Function {~ShellExplorerGUI()} {open
+  } {
+    code {m_Display->Delete();} {selected
+    }
+  }
+  Function {Show()} {open return_type {virtual void}
+  } {}
+  Function {UpdateDisplay()} {open return_type {virtual void}
+  } {}
+  Function {ChangeColour()} {open return_type {virtual void}
+  } {}
+  Function {Load()} {open return_type {virtual void}
+  } {}
+  Function {SaveScene()} {open return_type {virtual void}
+  } {}
+  Function {SaveImage()} {open return_type {virtual void}
+  } {}
+  Function {Quit()} {open return_type {virtual void}
+  } {}
+} 
